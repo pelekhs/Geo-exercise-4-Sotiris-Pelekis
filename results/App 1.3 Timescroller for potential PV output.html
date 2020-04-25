@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<head>    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.5.1/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.5.1/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://rawcdn.githack.com/python-visualization/folium/master/folium/templates/leaflet.awesome.rotate.css"/>
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_99b43bf3157b444bab10313cb360e5f0 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+            </style>
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
+    <script src="https://rawcdn.githack.com/nezasa/iso8601-js-period/master/iso8601.min.js"></script>
+    <script src="https://rawcdn.githack.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css"/>
+    <link rel="stylesheet" href="http://apps.socib.es/Leaflet.TimeDimension/dist/leaflet.timedimension.control.min.css"/>
+</head>
+<body>    
+    
+            <div class="folium-map" id="map_99b43bf3157b444bab10313cb360e5f0" ></div>
+        
+</body>
+<script>    
+    
+            var map_99b43bf3157b444bab10313cb360e5f0 = L.map(
+                "map_99b43bf3157b444bab10313cb360e5f0",
+                {
+                    center: [38.0, 24.0],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 6,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+            L.control.scale().addTo(map_99b43bf3157b444bab10313cb360e5f0);
+
+            
+
+        
+    
+            var macro_element_d9a57904d2314aa4b13c55e4e09f68a0 = L.tileLayer.wms(
+                "http://localhost:8082/geoserver/ows",
+                {"attribution": "", "format": "image/png", "layers": "geonode:ne_10m_admin_0_countries", "styles": "", "transparent": false, "version": "1.1.1"}
+            ).addTo(map_99b43bf3157b444bab10313cb360e5f0);
+        
+    
+            var macro_element_f55c1e8829bf42918ab1b4a8794c6525 = L.tileLayer.wms(
+                "http://localhost:8082/geoserver/ows",
+                {"attribution": "", "format": "image/png8", "layers": "geonode:PVOUT", "transparent": true, "version": "1.1.1"}
+            ).addTo(map_99b43bf3157b444bab10313cb360e5f0);
+        
+    
+            map_99b43bf3157b444bab10313cb360e5f0.timeDimension = L.timeDimension(
+                {"period": "P1M", "timeInterval": "2018-01-01T00:00:00.000Z/2018-12-01T00:00:00.000Z"}
+            );
+            map_99b43bf3157b444bab10313cb360e5f0.timeDimensionControl =
+                L.control.timeDimension(
+                    {"autoPlay": false, "playerOptions": {"loop": false, "transitionTime": 200}, "position": "bottomleft"}
+                );
+            map_99b43bf3157b444bab10313cb360e5f0.addControl(
+                map_99b43bf3157b444bab10313cb360e5f0.timeDimensionControl
+            );
+
+            
+            var macro_element_f55c1e8829bf42918ab1b4a8794c6525 = L.timeDimension.layer.wms(
+                macro_element_f55c1e8829bf42918ab1b4a8794c6525,
+                {
+                    updateTimeDimension: false,
+                    wmsVersion: "1.1.1",
+                }
+            ).addTo(map_99b43bf3157b444bab10313cb360e5f0);
+            
+        
+</script>
